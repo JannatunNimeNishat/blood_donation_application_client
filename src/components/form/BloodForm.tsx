@@ -1,3 +1,4 @@
+
 import { Form } from "antd";
 import { ReactNode } from "react";
 import {
@@ -10,6 +11,7 @@ import {
 type TFormProps = {
   onSubmit: SubmitHandler<any>;
   children: ReactNode;
+  className?: string;
 } & TFormConfig;
 
 type TFormConfig = {
@@ -22,6 +24,7 @@ const BloodForm = ({
   children,
   defaultValues,
   resolver,
+  className,
 }: TFormProps) => {
   const formConfig: TFormConfig = {};
   if (defaultValues) {
@@ -39,7 +42,11 @@ const BloodForm = ({
   };
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+      <Form
+        layout="vertical"
+        className={className}
+        onFinish={methods.handleSubmit(submit)}
+      >
         {children}
       </Form>
     </FormProvider>
