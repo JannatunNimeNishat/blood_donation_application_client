@@ -24,8 +24,8 @@ const BloodInput = ({
         rules={{
           required: { value: required, message: "Required" },
           minLength: {
-            value: type === "password" ? 8 : 0,
-            message: "Password must be at least 8 characters long",
+            value: type === "password" ? 6 : 0,
+            message: "Password must be at least 6 characters long",
           },
         }}
         render={({ field, fieldState: { error } }) => (

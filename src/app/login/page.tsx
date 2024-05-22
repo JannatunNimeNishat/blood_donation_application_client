@@ -1,18 +1,49 @@
-"use client";
+"use client"
 import BloodForm from "@/components/form/BloodForm";
 import BloodInput from "@/components/form/BloodInput";
+import { storeUserInfo } from "@/services/actions/auth.services";
+import { userLogin } from "@/services/actions/userLogin";
+
 import { Button } from "antd";
 import Link from "next/link";
-import { FieldValues, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/navigation";
+
+import { useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
+
+import { z } from "zod";
 
 const defaultValues = {
   email: "",
   password: "",
 };
 
+export const validationSchema = z.object({
+  email: z.string().email("Please enter a valid email address!"),
+  password: z.string().min(6, "Must be at least 6 characters"),
+});
+
 const LoginPage = () => {
-  const loginHandler: SubmitHandler<FieldValues> = (values) => {
-    console.log(values);
+  const router = useRouter();
+  const [error, setError] = useState("");
+
+  const loginHandler = async (values: FieldValues) => {
+    setError("");
+    try {
+      const res = await userLogin(values);
+
+      if (res?.data?.token) {
+        toast.success(res?.message);
+        storeUserInfo({ accessToken: res?.data?.token });
+        router.push('/')
+      } else {
+        setError(res?.message);
+      }
+    } catch (error) {
+      
+      console.log(error);
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -31,24 +62,18 @@ const LoginPage = () => {
         >
           Login:
         </h2>
+        {error && <p className="text-red-500 font-semibold text-center">{error}</p>}
         <BloodForm
           onSubmit={loginHandler}
           defaultValues={defaultValues}
+          resolver={validationSchema}
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">
-            <BloodInput
-             name="email"
-             type="email"
-             label="Email"
-            />
+            <BloodInput name="email" type="email" label="Email" />
           </div>
           <div className="flex flex-col">
-          <BloodInput
-             name="password"
-             type="password"
-             label="Password"
-            />
+            <BloodInput name="password" type="password" label="Password" />
           </div>
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
             <Button

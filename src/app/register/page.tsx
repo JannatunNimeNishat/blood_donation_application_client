@@ -1,31 +1,71 @@
-"use client"
+"use client";
 import BloodFileInput from "@/components/form/BloodFileInput";
 import BloodForm from "@/components/form/BloodForm";
 import BloodInput from "@/components/form/BloodInput";
 import BloodRadio from "@/components/form/BloodRadio";
 import BloodSelect from "@/components/form/BloodSelect";
 import BloodTextArea from "@/components/form/BloodTextArea";
+import { storeUserInfo } from "@/services/actions/auth.services";
+import { registerUser } from "@/services/actions/registerUser";
+import { userLogin } from "@/services/actions/userLogin";
+import { imageUploader } from "@/utils/imageUploader";
 import { Button } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { useState } from "react";
 import { FieldValues, SubmitErrorHandler } from "react-hook-form";
+import { toast } from "sonner";
 
 const defaultValues = {
-  name:"",
-  email:"",
-  password:"",
-  bloodType:"",
-  location:"",
-  age:"",
-  bio:"",
-  lastDonationDate:"",
-  role:"",
+  name: "",
+  email: "",
+  password: "",
+  bloodType: "",
+  location: "",
+  age: "",
+  bio: "",
+  lastDonationDate: "",
+  role: "",
   isDonor: "",
-  userImageURL:"",
+  userImageURL: "",
 };
 
 const RegisterPage = () => {
-  const handleRegister: SubmitErrorHandler<FieldValues> = (values) => {
-    console.log(values);
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const handleRegister = async (values: FieldValues) => {
+    setError("");
+    try {
+      if (values?.userImageURL) {
+        const uploadedImage = await imageUploader(
+          values?.userImageURL?.fileList[0].originFileObj
+        );
+        values.userImageURL = uploadedImage.url;
+      }
+      values.age = Number(values.age);
+      const res = await registerUser(values);
+      
+      // register
+      if (res?.data?.id) {
+        toast.success(res?.message);
+        // login
+        const result = await userLogin({
+          email: values?.email,
+          password: values?.password,
+        });
+        if (result?.data?.token) {
+          storeUserInfo({ accessToken: result?.data?.token });
+          router.push("/");
+        } else {
+          setError(result?.message);
+        }
+      } else {
+        setError(res?.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   const bloodOptions = [
     { value: "O-POSITIVE", label: "O+" },
@@ -37,10 +77,9 @@ const RegisterPage = () => {
     { value: "AB-POSITIVE", label: "AB+" },
     { value: "AB-NEGATIVE", label: "AB-" },
   ];
-  const isDonorOptions:any = [
+  const isDonorOptions: any = [
     { value: true, label: "Yes" },
     { value: false, label: "No" },
-    
   ];
   return (
     <div className="min-h-screen  flex items-center justify-center py-10">
@@ -60,6 +99,9 @@ const RegisterPage = () => {
         >
           Register:
         </h2>
+        {error && (
+          <p className="text-red-500 font-semibold text-center">{error}</p>
+        )}
         <BloodForm
           onSubmit={handleRegister}
           defaultValues={defaultValues}
@@ -67,20 +109,49 @@ const RegisterPage = () => {
         >
           <div className="grid lg:grid-cols-2 gap-4">
             <BloodInput name="name" type="text" label="Name" required={true} />
-            <BloodInput name="email" type="email" label="Email" required={true} />
-            <BloodInput name="password" type="password" label="Password" required={true} />
-            
-            <BloodSelect name="bloodType" label="Blood Type" options={bloodOptions} required={true} />
-            <BloodInput name="location" type="text" label="Location" required={true}/>
-            <BloodInput name="age" type="number" label="Age" required={true}/>
-            <BloodInput name="lastDonationDate" type="date" label="Last Donation Date" required={true}/>
-            <BloodRadio label="Become a donor" name="isDonor" options={isDonorOptions} required={true}
-            className="border border-gray-300 hover:border-blue-500 w-full h-full py-[10px] px-2 rounded-lg flex gap-3"
+            <BloodInput
+              name="email"
+              type="email"
+              label="Email"
+              required={true}
+            />
+            <BloodInput
+              name="password"
+              type="password"
+              label="Password"
+              required={true}
+            />
+
+            <BloodSelect
+              name="bloodType"
+              label="Blood Type"
+              options={bloodOptions}
+              required={true}
+            />
+            <BloodInput
+              name="location"
+              type="text"
+              label="Location"
+              required={true}
+            />
+            <BloodInput name="age" type="number" label="Age" required={true} />
+            <BloodInput
+              name="lastDonationDate"
+              type="date"
+              label="Last Donation Date"
+              required={true}
+            />
+            <BloodRadio
+              label="Become a donor"
+              name="isDonor"
+              options={isDonorOptions}
+              required={true}
+              className="border border-gray-300 hover:border-blue-500 w-full h-full py-[10px] px-2 rounded-lg flex gap-3"
             />
           </div>
-            <BloodFileInput name="userImageURL"  label="User Image URL"/>
-          
-            <BloodTextArea name="bio"  label="Bio"/>
+          <BloodTextArea name="bio" label="Bio" required={true} />
+          <BloodFileInput name="userImageURL" label="User Image " />
+
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
             <Button
               className="mt-0 py-5  flex items-center justify-center"

@@ -1,33 +1,34 @@
 import { Button, Dropdown, MenuProps, Space } from "antd";
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import Link from "next/link";
+import { getUserInfo, removeUser } from "@/services/actions/auth.services";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const AuthButton = () => {
-    const user = true;
+    const userInfo = getUserInfo()
+    console.log(userInfo);
+    const router = useRouter();
     const handleMenuClick: MenuProps['onClick'] = (e) => {
-        console.log('click', e);
+        if(e.key === 'profile'){
+          router.push(`/dashboard/${userInfo?.role}`)
+        }else if(e.key==="logout"){
+          removeUser();
+          router.refresh();
+        }
+
       };
 
     const items: MenuProps['items'] = [
         {
-          label: '1st menu item',
-          key: '1',
+          label: 'Profile',
+          key: 'profile',
         },
         {
-          label: '2nd menu item',
-          key: '2',
-        },
-        {
-          label: '3rd menu item',
-          key: '3',
-          danger: true,
-        },
-        {
-          label: '4rd menu item',
-          key: '4',
-          danger: true,
-          disabled: true,
-        },
+          label: 'Logout',
+          key: 'logout',
+        }
+        
       ];
       
       const menuProps = {
@@ -37,17 +38,22 @@ const AuthButton = () => {
     return (
         <>
          {
-            user ?
+            !userInfo?.id ?
             <Link href={'/login'}>
             <Button>
                 Login
             </Button>
             </Link>
             :
-            <Dropdown menu={menuProps}>
-                <Button type="primary"  shape="circle">
-            A
-          </Button>
+            <Dropdown menu={menuProps} >
+            <Image
+            className="rounded-full w-[40px] h-[40px]"
+            width={25}
+            height={25}
+            src={userInfo?.userImageURL}
+            alt="user img"
+            />
+        
     
     </Dropdown>
          }   
