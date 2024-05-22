@@ -39,7 +39,7 @@ const BloodInput = ({
                 type={type}
                 id={name}
                 size="large"
-                required={required}
+                
               />
             ) : (
               <Input
@@ -49,7 +49,7 @@ const BloodInput = ({
                 type={type}
                 id={name}
                 size="large"
-                required={required}
+                
               />
             )}
             {error && <small className="text-red-500">{error?.message}</small>}

@@ -15,6 +15,9 @@ const BloodRadio = ({ label, name, options, disabled, required = false,className
     <div className="">
       <Controller
         name={name}
+        rules={{
+          required: { value: required, message: "Required" },
+        }}
         render={({ field, fieldState: { error } }) => (
           <Form.Item label={label} required={required}>
             <Radio.Group {...field} disabled={disabled}

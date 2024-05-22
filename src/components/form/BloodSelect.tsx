@@ -15,6 +15,9 @@ const BloodSelect = ({ label, name, options, disabled,mode,required=false }: TPH
     <div>
       <Controller
         name={name}
+        rules={{
+          required:{value:required, message:'required'}
+        }}
         render={({ field, fieldState: { error } }) => (
             <Form.Item label={label} required={required}>
               <Select
