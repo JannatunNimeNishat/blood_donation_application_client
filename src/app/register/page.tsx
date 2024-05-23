@@ -5,6 +5,7 @@ import BloodInput from "@/components/form/BloodInput";
 import BloodRadio from "@/components/form/BloodRadio";
 import BloodSelect from "@/components/form/BloodSelect";
 import BloodTextArea from "@/components/form/BloodTextArea";
+import PrimaryBtn from "@/components/ui/Button/PrimaryBtn";
 import { storeUserInfo } from "@/services/actions/auth.services";
 import { registerUser } from "@/services/actions/registerUser";
 import { userLogin } from "@/services/actions/userLogin";
@@ -29,6 +30,7 @@ const defaultValues = {
   role: "",
   isDonor: "",
   userImageURL: "",
+  mobileNumber:""
 };
 
 const RegisterPage = () => {
@@ -128,6 +130,12 @@ const RegisterPage = () => {
               label="Password"
               required={true}
             />
+            <BloodInput
+              name="mobileNumber"
+              type="text"
+              label="Mobile Number"
+              required={true}
+            />
 
             <BloodSelect
               name="bloodType"
@@ -161,7 +169,10 @@ const RegisterPage = () => {
           <BloodFileInput name="userImageURL" label="User Image " />
 
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
-            <Button
+          <PrimaryBtn>
+                Register
+              </PrimaryBtn>
+           {/*  <Button
               className="mt-0 py-5  flex items-center justify-center"
               style={{
                 width: "150px",
@@ -172,7 +183,7 @@ const RegisterPage = () => {
               htmlType="submit"
             >
               Register
-            </Button>
+            </Button> */}
           </div>
           <p style={{ textAlign: "center", width: "full", marginTop: "10px" }}>
             Already have an account ?{" "}

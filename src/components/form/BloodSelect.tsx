@@ -21,6 +21,7 @@ const BloodSelect = ({ label, name, options, disabled,mode,required=false }: TPH
         render={({ field, fieldState: { error } }) => (
             <Form.Item label={label} required={required}>
               <Select
+              className="hover:border-red-500"
               placeholder="Select one"
               mode={mode} 
                 {...field}

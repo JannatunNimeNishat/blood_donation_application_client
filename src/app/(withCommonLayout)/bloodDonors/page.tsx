@@ -93,6 +93,7 @@ const BloodDonorsPage = () => {
                 render={({ field }) => (
                   <Form.Item label="Blood group" className="w-full mt-4">
                     <Select
+                    
                       placeholder="Select one"
                       {...field}
                       style={{ width: "100%" }}
@@ -111,6 +112,7 @@ const BloodDonorsPage = () => {
                 render={({ field }) => (
                   <Form.Item label="Location" className="w-full mt-4">
                     <Select
+                    className={"hover:border-red-500"}
                       placeholder="Select location"
                       {...field}
                       style={{ width: "100%" }}
@@ -129,6 +131,7 @@ const BloodDonorsPage = () => {
                 render={({ field }) => (
                   <Form.Item label="Availability" className="w-full mt-4">
                     <Select
+                    className={"hover:border-red-500"}
                       placeholder="Select one"
                       {...field}
                       style={{ width: "100%" }}

@@ -33,7 +33,7 @@ const BloodInput = ({
             {type === "password" ? (
               <Input.Password
                 placeholder="input password"
-                className="w-full"
+                className="w-full hover:border-red-500"
                 {...field}
                 disabled={disabled}
                 type={type}
@@ -43,7 +43,7 @@ const BloodInput = ({
               />
             ) : (
               <Input
-                className="w-full"
+                className="w-full hover:border-red-500"
                 {...field}
                 disabled={disabled}
                 type={type}

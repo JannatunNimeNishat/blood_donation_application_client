@@ -25,7 +25,7 @@ const BloodTextArea = ({
           className="w-full "
           >
             <TextArea
-            className="w-full"
+            className="w-full hover:border-red-500"
               {...field}
               disabled={disabled}
               id={name}
