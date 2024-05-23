@@ -20,7 +20,7 @@ const Navbar = () => {
         <ul className="flex items-center gap-5">
           <Link
             className={`${pathName === "/" ? "text-red-500" : ""}
-          hover:text-red-500 duration-150
+          hover:text-red-500 duration-150 font-medium
           `}
             href={"/"}
           >
@@ -28,7 +28,7 @@ const Navbar = () => {
           </Link>
           <Link
             className={`${pathName === "/aboutUs" ? "text-red-500" : ""}
-          hover:text-red-500 duration-150
+          hover:text-red-500 duration-150 font-medium
           `}
             href={"/aboutUs"}
           >
@@ -36,7 +36,7 @@ const Navbar = () => {
           </Link>
           <Link
             className={`${pathName === "/bloodDonors" ? "text-red-500" : ""}
-          hover:text-red-500 duration-150
+          hover:text-red-500 duration-150 font-medium
           `}
             href={"/bloodDonors"}
           >
