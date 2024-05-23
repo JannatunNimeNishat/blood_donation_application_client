@@ -1,6 +1,7 @@
 "use client"
 import BloodForm from "@/components/form/BloodForm";
 import BloodInput from "@/components/form/BloodInput";
+import PrimaryBtn from "@/components/ui/Button/PrimaryBtn";
 import { storeUserInfo } from "@/services/actions/auth.services";
 import { userLogin } from "@/services/actions/userLogin";
 
@@ -48,12 +49,12 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div
-        className="border border-blue-300 w-[450px]  "
+        className="border border-red-300 w-[450px]  "
         style={{
           margin: "0 auto",
           padding: "30px",
           borderRadius: "15px",
-          boxShadow: "10px 10px 30px lightblue",
+          boxShadow: "5px 5px 30px red",
         }}
       >
         <h2
@@ -70,13 +71,22 @@ const LoginPage = () => {
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">
-            <BloodInput name="email" type="email" label="Email" />
+            <BloodInput name="email" type="email" label="Email" required={true}/>
           </div>
           <div className="flex flex-col">
-            <BloodInput name="password" type="password" label="Password" />
+            <BloodInput name="password" type="password" label="Password" required={true}/>
           </div>
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
-            <Button
+            {/* <Button
+              className="  flex items-center justify-center"
+             
+              htmlType="submit"
+            > */}
+              <PrimaryBtn>
+                Login
+              </PrimaryBtn>
+            {/* </Button> */}
+           {/*  <Button
               className="mt-0 py-5  flex items-center justify-center"
               style={{
                 width: "150px",
@@ -87,7 +97,7 @@ const LoginPage = () => {
               htmlType="submit"
             >
               Login
-            </Button>
+            </Button> */}
           </div>
           <p style={{ textAlign: "center", width: "full", marginTop: "10px" }}>
             Do not have an account ?{" "}

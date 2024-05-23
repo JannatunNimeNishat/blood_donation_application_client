@@ -17,7 +17,7 @@ const HeroSection = () => {
               Be the Hero Someone Desperately Needs Right Now
             </h1>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 w-[40%]">
             <Link
             href="/bloodDonors"
             >

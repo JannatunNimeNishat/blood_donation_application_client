@@ -4,10 +4,11 @@ import Link from "next/link";
 import { getUserInfo, removeUser } from "@/services/actions/auth.services";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import PrimaryBtn from "../Button/PrimaryBtn";
 
 const AuthButton = () => {
     const userInfo = getUserInfo()
-    console.log(userInfo);
+   
     const router = useRouter();
     const handleMenuClick: MenuProps['onClick'] = (e) => {
         if(e.key === 'profile'){
@@ -39,10 +40,15 @@ const AuthButton = () => {
         <>
          {
             !userInfo?.id ?
-            <Link href={'/login'}>
-            <Button>
+            <Link href={'/login'}
+           
+            >
+              <PrimaryBtn>
                 Login
-            </Button>
+              </PrimaryBtn>
+            {/* <Button>
+                Login
+            </Button> */}
             </Link>
             :
             <Dropdown menu={menuProps} >

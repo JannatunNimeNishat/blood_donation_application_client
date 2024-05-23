@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between py-5 w-11/12 mx-auto">
       <figure>
-        <h1 className="text-4xl font-semibold text-red-500 ">BloodBond</h1>
+        <Link href={'/'} className="text-4xl font-semibold text-red-500 cursor-pointer">BloodBond</Link>
       </figure>
       <div>
         <ul className="flex items-center gap-5">
@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
         </ul>
       </div>
-      <div className="cursor-pointer rounded-full w-[40px] h-[40px]">
+      <div className="cursor-pointer  ">
         <AuthButton />
       </div>
     </div>
