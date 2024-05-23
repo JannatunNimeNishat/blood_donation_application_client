@@ -1,5 +1,5 @@
-import { Button, Dropdown, MenuProps, Space } from "antd";
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { Dropdown, MenuProps,  } from "antd";
+
 import Link from "next/link";
 import { getUserInfo, removeUser } from "@/services/actions/auth.services";
 import Image from "next/image";
@@ -46,19 +46,19 @@ const AuthButton = () => {
               <PrimaryBtn>
                 Login
               </PrimaryBtn>
-            {/* <Button>
-                Login
-            </Button> */}
+            
             </Link>
             :
-            <Dropdown menu={menuProps} >
+            <Dropdown menu={menuProps} className="w-[150px] flex items-center justify-center ">
+              <div>
             <Image
-            className="rounded-full w-[40px] h-[40px]"
+            className="rounded-full w-[40px] h-[40px] border border-red-500"
             width={25}
             height={25}
             src={userInfo?.userImageURL}
             alt="user img"
             />
+            </div>
         
     
     </Dropdown>
