@@ -1,6 +1,6 @@
 "use client";
 
-import { Anchor } from "antd";
+
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
