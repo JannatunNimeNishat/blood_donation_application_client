@@ -81,6 +81,13 @@ const RegisterPage = () => {
     { value: true, label: "Yes" },
     { value: false, label: "No" },
   ];
+
+  const locationOptions = [
+    { value: "Dhaka", label: "Dhaka" },
+    { value: "Rajshahi", label: "Rajshahi" },
+    { value: "khulna", label: "khulna" },
+    { value: "Sylhet", label: "Sylhet" },
+  ];
   return (
     <div className="min-h-screen  flex items-center justify-center py-10">
       <div
@@ -128,12 +135,13 @@ const RegisterPage = () => {
               options={bloodOptions}
               required={true}
             />
-            <BloodInput
+            <BloodSelect name="location" label="Location" required={true} options={locationOptions}/>
+            {/* <BloodInput
               name="location"
               type="text"
               label="Location"
               required={true}
-            />
+            /> */}
             <BloodInput name="age" type="number" label="Age" required={true} />
             <BloodInput
               name="lastDonationDate"
