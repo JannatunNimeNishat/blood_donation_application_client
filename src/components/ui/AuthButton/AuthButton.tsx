@@ -11,7 +11,7 @@ const AuthButton = () => {
    
     const router = useRouter();
     const handleMenuClick: MenuProps['onClick'] = (e) => {
-        if(e.key === 'profile'){
+        if(e.key === 'dashboard'){
           router.push(`/dashboard/${userInfo?.role}`)
         }else if(e.key==="logout"){
           removeUser();
