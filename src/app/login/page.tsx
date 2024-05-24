@@ -77,27 +77,12 @@ const LoginPage = () => {
             <BloodInput name="password" type="password" label="Password" required={true}/>
           </div>
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
-            {/* <Button
-              className="  flex items-center justify-center"
-             
-              htmlType="submit"
-            > */}
+            
               <PrimaryBtn>
                 Login
               </PrimaryBtn>
-            {/* </Button> */}
-           {/*  <Button
-              className="mt-0 py-5  flex items-center justify-center"
-              style={{
-                width: "150px",
-                backgroundColor: "lightblue",
-                fontWeight: "600",
-                color: "black",
-              }}
-              htmlType="submit"
-            >
-              Login
-            </Button> */}
+            
+          
           </div>
           <p style={{ textAlign: "center", width: "full", marginTop: "10px" }}>
             Do not have an account ?{" "}

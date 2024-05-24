@@ -30,7 +30,15 @@ export const adminApi = baseApi.injectEndpoints({
         }),
         invalidatesTags: [tagTypes.admin],
       }),
+    changeUserPassword: build.mutation({
+        query: (data) => ({
+          url: `/changePassword`,
+          method: "PUT",
+          data: data,
+        }),
+        invalidatesTags: [tagTypes.admin],
+      }),
   }),
 });
 
-export const { useGetAllUsersQuery, useChangeUserRoleMutation,useChangeUserAccountTypeMutation } = adminApi;
+export const { useGetAllUsersQuery, useChangeUserRoleMutation,useChangeUserAccountTypeMutation,useChangeUserPasswordMutation } = adminApi;
