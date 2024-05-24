@@ -20,7 +20,14 @@ export const userApi = baseApi.injectEndpoints({
       },
       invalidatesTags: [tagTypes.user],
     }),
+    getMyBloodRequests: build.query({
+      query: () => ({
+        url: "/get-my-all-blood-requests",
+        method: "GET",
+      }),
+      providesTags: [tagTypes.user],
+    }),
   }),
 });
 
-export const { useUpdateUserInfoMutation, useGetMyProfileInfoQuery } = userApi;
+export const { useUpdateUserInfoMutation, useGetMyProfileInfoQuery,useGetMyBloodRequestsQuery } = userApi;
