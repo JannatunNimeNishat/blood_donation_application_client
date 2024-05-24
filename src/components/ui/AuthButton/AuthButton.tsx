@@ -22,8 +22,8 @@ const AuthButton = () => {
 
     const items: MenuProps['items'] = [
         {
-          label: 'Profile',
-          key: 'profile',
+          label: 'Dashboard',
+          key: 'dashboard',
         },
         {
           label: 'Logout',
@@ -40,7 +40,7 @@ const AuthButton = () => {
         <>
          {
             !userInfo?.id ?
-            <Link className="border w-[150px] h-[150px]" href={'/login'}
+            <Link className=" w-[150px] " href={'/login'}
             >
               <PrimaryBtn>
                 Login
