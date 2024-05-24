@@ -144,12 +144,7 @@ const RegisterPage = () => {
               required={true}
             />
             <BloodSelect name="location" label="Location" required={true} options={locationOptions}/>
-            {/* <BloodInput
-              name="location"
-              type="text"
-              label="Location"
-              required={true}
-            /> */}
+           
             <BloodInput name="age" type="number" label="Age" required={true} />
             <BloodInput
               name="lastDonationDate"

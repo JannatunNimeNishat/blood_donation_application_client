@@ -35,7 +35,7 @@ const BloodForm = ({
     formConfig["resolver"] = resolver;
   }
 
-  const methods = useForm();
+  const methods = useForm(formConfig);
   const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
     methods.reset();
