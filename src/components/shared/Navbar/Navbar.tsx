@@ -13,9 +13,9 @@ const Navbar = () => {
   const pathName = usePathname();
   return (
     <div className="flex items-center gap-16  w-full mx-auto shadow-lg">
-      <figure className="bg-red-500 w-4/12 text-left flex justify-end py-3 ">
+      <div className="bg-red-500 w-4/12 text-left flex justify-end py-3 ">
         <Link href={'/'} className="text-4xl font-semibold text-white px-3 cursor-pointer">BloodBond</Link>
-      </figure>
+      </div>
       <div className="flex items-center w-8/12  gap-3 py-3">
         <ul className="flex items-center gap-5 ">
           <Link
