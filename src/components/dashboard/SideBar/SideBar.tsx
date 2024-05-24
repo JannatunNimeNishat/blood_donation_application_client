@@ -1,4 +1,4 @@
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu } from "antd";
 import {
   LockOutlined,
   BlockOutlined,
