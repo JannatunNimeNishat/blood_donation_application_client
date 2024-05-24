@@ -66,8 +66,8 @@ const LoginPage = () => {
         {error && <p className="text-red-500 font-semibold text-center">{error}</p>}
         <BloodForm
           onSubmit={loginHandler}
-          defaultValues={defaultValues}
-          resolver={validationSchema}
+          //defaultValues={defaultValues}
+         // resolver={validationSchema}
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">
@@ -77,10 +77,11 @@ const LoginPage = () => {
             <BloodInput name="password" type="password" label="Password" required={true}/>
           </div>
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
-            
+            {/* <button type="submit"> */}
               <PrimaryBtn>
                 Login
               </PrimaryBtn>
+            {/* </button> */}
             
           
           </div>

@@ -22,13 +22,18 @@ const MyBloodRequestsPage = () => {
       key: "bloodType",
     },
     {
+      title: "Date Of Donation",
+      dataIndex: "dateOfDonation",
+      key: "dateOfDonation",
+    },
+    {
       title: "Status",
       dataIndex: "requestStatus",
       key: "requestStatus",
     },
 
     {
-      title: "Action",
+      title: "",
       dataIndex: "",
       key: "x",
       render: (record: any) => (

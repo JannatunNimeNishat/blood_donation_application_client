@@ -34,7 +34,23 @@ export const userApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.user],
     }),
+    updateDonationRequest: build.mutation({
+      query: (data) => {
+        return {
+          url: `/donation-request/${data?.id}`,
+          method: "PUT",
+          data: { status: data?.status },
+        };
+      },
+      invalidatesTags: [tagTypes.user],
+    }),
   }),
 });
 
-export const { useUpdateUserInfoMutation, useGetMyProfileInfoQuery,useGetMyBloodRequestsQuery,useGetBloodDonationRequestsToMeQuery } = userApi;
+export const {
+  useUpdateUserInfoMutation,
+  useGetMyProfileInfoQuery,
+  useGetMyBloodRequestsQuery,
+  useGetBloodDonationRequestsToMeQuery,
+  useUpdateDonationRequestMutation,
+} = userApi;

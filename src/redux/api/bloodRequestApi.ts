@@ -10,7 +10,7 @@ export const bloodRequestApi = baseApi.injectEndpoints({
                 data
             }),
             invalidatesTags:[tagTypes.user]
-        })
+        }),
     })
 })
 
