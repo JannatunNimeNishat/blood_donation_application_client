@@ -194,7 +194,7 @@ const Navbar = () => {
             Blog
           </Link>
           </ul>
-          <div className="cursor-pointer  ">
+          <div className="cursor-pointer ml-4 ">
             <AuthButton />
           </div>
         </div>

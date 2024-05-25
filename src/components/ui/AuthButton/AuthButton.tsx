@@ -40,7 +40,7 @@ const AuthButton = () => {
         <>
          {
             !userInfo?.id ?
-            <Link className=" w-[150px] " href={'/login'}
+            <Link className=" w-[150px] border" href={'/login'}
             >
               <PrimaryBtn>
                 Login
@@ -48,7 +48,7 @@ const AuthButton = () => {
             
             </Link>
             :
-            <Dropdown menu={menuProps} className="w-[150px] flex items-center justify-center ">
+            <Dropdown menu={menuProps} className="  flex items-center justify-center ">
               <div>
             <Image
             className="rounded-full w-[40px] h-[40px] border border-red-500"
