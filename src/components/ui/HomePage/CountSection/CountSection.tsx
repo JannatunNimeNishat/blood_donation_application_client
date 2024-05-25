@@ -4,10 +4,10 @@ import countImage from "@/assets/landing_page/count.jpg";
 const CountSection = () => {
   return (
     <div
-      className={`my-10 lg:my-16  bg-fixed bg-cover bg-center  `}
+      className={`  bg-fixed bg-cover bg-center  `}
       style={{ backgroundImage: `url(${countImage.src})` }}
     >
-      <div className="lg:flex items-center justify-between backdrop-brightness-50 h-full w-full px-16">
+      <div className="lg:flex items-center justify-between backdrop-brightness-50 h-full w-full px-16 ">
         <div className="text-white max-w-[1440px] mx-auto">
           <div className="py-20 mx-auto flex flex-col lg:flex-row items-center justify-between  gap-10  ">
             <div>
