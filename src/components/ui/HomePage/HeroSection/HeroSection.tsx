@@ -6,9 +6,9 @@ import PrimaryBtn from "../../Button/PrimaryBtn";
 const HeroSection = () => {
   return (
     <div className=" max-w-[1440px]  mx-auto ">
-      <div className="grid grid-cols-6 gap-8 w-8/12 mx-auto py-16 ">
-        <div className="col-span-3 flex flex-col justify-center ">
-          <div className="space-y-5">
+      <div className="lg:grid grid-cols-6 gap-8 w-11/12  lg:w-8/12 mx-auto py-10 lg:py-16 ">
+        <div className="col-span-3 lg:flex flex-col justify-center ">
+          <div className="space-y-2 lg:space-y-5">
             
             <h3 className="text-red-500 font-bold text-xl">
               Donate blood, save life !
@@ -17,7 +17,7 @@ const HeroSection = () => {
               Be the Hero Someone Desperately Needs Right Now
             </h1>
           </div>
-          <div className="mt-10 w-[40%]">
+          <div className="mt-8 lg:mt-10 lg:w-[40%]">
             <Link
             href="/bloodDonors"
             >
@@ -28,7 +28,7 @@ const HeroSection = () => {
             
           </div>
         </div>
-        <div className=" col-span-3">
+        <div className=" col-span-3 mt-8 lg:mt-0">
           <Image
             className="h-[450px] w-[450px] rounded-lg  "
             style={{
