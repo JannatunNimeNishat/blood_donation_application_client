@@ -27,7 +27,7 @@ const HomePage = () => {
      <div className='bg-gray-200 '>
      <OurRecentBlogs/>
      </div>
-     <div className='bg-red-600 hidden lg:hidden'>
+     <div className='bg-red-600 hidden lg:block'>
      <ChangeTheWorld/>
      </div>
 
