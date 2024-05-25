@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       {/* sm nav */}
-      <div className=" flex lg:hidden justify-between items-center mx-4 py-[30px] ">
+      <div className=" flex lg:hidden justify-between items-center px-3 py-[30px] shadow-lg ">
         <figure>
           <Link
             href={"/"}
@@ -184,7 +184,7 @@ const Navbar = () => {
           </Link>
             
             <Link
-            href={"/contact"}
+            href={"/blog"}
             className={`${pathName === '/blog' ? "text-red-500" : "text-[#0F172A] "}
             text-[18px] font-medium leading-[26px]
             `}

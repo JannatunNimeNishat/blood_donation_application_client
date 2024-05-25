@@ -84,7 +84,7 @@ const BloodDonorsPage = () => {
         <Form layout="horizontal" onFinish={handleSubmit(handleBloodSearch)}>
           <div className="lg:w-10/12 mx-auto border border-red-400 rounded-lg p-3 flex flex-col lg:flex-row items-center justify-between gap-8 relative">
             {/* filter fields */}
-            <div className="flex w-3/4 items-center gap-5 lg:gap-3 ">
+            <div className="flex lg:w-3/4 items-center gap-5 lg:gap-3 ">
               {/* bloodType */}
               <Controller
                 name="bloodType"
@@ -143,8 +143,8 @@ const BloodDonorsPage = () => {
               />
             </div>
             {/* search btn */}
-            <div className="w-1/4">
-              <div className="w-1/3 mx-auto">
+            <div className="lg:w-1/4">
+              <div className="lg:w-1/3 mx-auto">
                 <PrimaryBtn>Search</PrimaryBtn>
               </div>
             </div>
