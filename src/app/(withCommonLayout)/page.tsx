@@ -1,6 +1,7 @@
 import CountSection from '@/components/ui/HomePage/CountSection/CountSection';
 import HelpPeopleInNeed from '@/components/ui/HomePage/HelpPeopleInNeed/HelpPeopleInNeed';
 import HeroSection from '@/components/ui/HomePage/HeroSection/HeroSection';
+import StartDonating from '@/components/ui/HomePage/StartDonating/StartDonating';
 import WhatWeDo from '@/components/ui/HomePage/WhatWeDo/WhatWeDo';
 
 import React from 'react';
@@ -17,8 +18,8 @@ const HomePage = () => {
      <CountSection/>
      <div className='bg-gray-200 '>
      <WhatWeDo/>
-
      </div>
+     <StartDonating/>
     </div>
   );
 };
