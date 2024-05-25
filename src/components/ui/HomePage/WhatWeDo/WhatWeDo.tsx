@@ -25,7 +25,7 @@ const data: any = [
 
 const WhatWeDo = () => {
   return (
-    <div className="max-w-[1440px]  mx-auto hidden lg:block">
+    <div className="max-w-[1440px]  mx-auto ">
       <div className="w-11/12  lg:w-8/12 mx-auto py-10 lg:py-16">
         {/* nav */}
         <h4 className="text-red-500 font-bold text-center">WHAT WE DO</h4>
@@ -38,11 +38,11 @@ const WhatWeDo = () => {
           {data?.map((item: any,index:any) => {
             if (index % 2 === 0) {
               return (
-                <div key={item.count} className="flex items-center gap-8 my-8">
-                  <figure className=" w-1/2 overflow-hidden" >
-                    <Image className="w-[450px] h-[400px] hover:scale-110 duration-150" src={item.image} alt="what we do image" />
+                <div key={item.count} className="flex flex-col lg:flex-row items-center gap-8 my-8">
+                  <figure className=" lg:w-1/2 overflow-hidden" >
+                    <Image className="lg:w-[450px] lg:h-[400px] hover:scale-110 duration-300" src={item.image} alt="what we do image" />
                   </figure >
-                  <div className="w-1/2 flex flex-col justify-center space-y-3">
+                  <div className="lg:w-1/2 flex flex-col justify-center space-y-3">
                     <h1 className="text-7xl font-bold text-gray-300">{item.count}</h1>
                     <h3 className="text-2xl font-bold">{item.title}</h3>
                     <p className="text-gray-600 ">{item.desc}</p>
@@ -56,9 +56,11 @@ const WhatWeDo = () => {
               );
             } else {
               return (
-                <div key={item.count} className="flex items-center gap-8 my-8">
-                  
-                  <div className="w-1/2 flex flex-col justify-center items-end text-end space-y-3">
+                <div key={item.count} className="flex flex-col lg:flex-row items-center gap-8 my-8">
+                   <figure className="block lg:hidden lg:w-1/2 overflow-hidden" >
+                    <Image className="lg:w-[450px] lg:h-[400px] hover:scale-110 duration-300" src={item.image} alt="what we do image" />
+                  </figure >
+                  <div className="lg:w-1/2 flex flex-col justify-center lg:items-end lg:text-end space-y-3">
                     <h1 className="text-7xl font-bold text-gray-300">{item.count}</h1>
                     <h3 className="text-2xl font-bold">{item.title}</h3>
                     <p className="text-gray-600 ">{item.desc}</p>
@@ -68,8 +70,8 @@ const WhatWeDo = () => {
                     </PrimaryBtn>
                    </div>
                   </div>
-                  <figure className=" w-1/2 overflow-hidden" >
-                    <Image className="w-[450px] h-[400px] hover:scale-110 duration-150" src={item.image} alt="what we do image" />
+                  <figure className="hidden lg:block lg:w-1/2 overflow-hidden" >
+                    <Image className="lg:w-[450px] lg:h-[400px] hover:scale-110 duration-150" src={item.image} alt="what we do image" />
                   </figure >
                 </div>
               );
