@@ -147,6 +147,7 @@ const BloodRequestsForMePage = () => {
           columns={columns}
           dataSource={bloodRequestsToMe?.data}
           rowKey="id"
+          scroll={{ x: "max-content" }}
         />
       </div>
 

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import BloodForm from "@/components/form/BloodForm";
 import BloodInput from "@/components/form/BloodInput";
 import PrimaryBtn from "@/components/ui/Button/PrimaryBtn";
@@ -15,10 +15,7 @@ import { toast } from "sonner";
 
 import { z } from "zod";
 
-const defaultValues = {
-  email: "",
-  password: "",
-};
+
 
 export const validationSchema = z.object({
   email: z.string().email("Please enter a valid email address!"),
@@ -28,6 +25,14 @@ export const validationSchema = z.object({
 const LoginPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
+ /*  const [loginOptions, setLoginOptions] = useState(0);
+
+console.log(loginOptions);
+  const defaultValues = {
+    email: loginOptions === 1 ? "admin@gmail.com":"nishatnime100@gmail.com",
+    password: loginOptions === 2 ? "123456":"123456",
+  };
+ */
 
   const loginHandler = async (values: FieldValues) => {
     setError("");
@@ -37,19 +42,18 @@ const LoginPage = () => {
       if (res?.data?.token) {
         toast.success(res?.message);
         storeUserInfo({ accessToken: res?.data?.token });
-        router.push('/')
+        router.push("/");
       } else {
         setError(res?.message);
       }
     } catch (error) {
-      
       console.log(error);
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center  ">
       <div
-        className="border border-red-300 w-[450px]  "
+        className="border border-red-300 px-2 lg:px-0 lg:w-[450px] relative "
         style={{
           margin: "0 auto",
           padding: "30px",
@@ -57,33 +61,50 @@ const LoginPage = () => {
           boxShadow: "5px 5px 30px red",
         }}
       >
+        {/* <div className="flex items-center gap-3 absolute top-4 right-4 ">
+          <span className="px-3 py-1 border border-gray-500 rounded-lg" title="admin"
+          onClick={()=>setLoginOptions(1)}
+          >User</span>
+          <button className="px-3 py-1 border border-gray-500 rounded-lg"
+          onClick={()=>setLoginOptions(2)}
+          >Admin</button>
+        </div> */}
         <h2
           className="font-semibold text-2xl"
           style={{ marginTop: "10px", marginBottom: "10px" }}
         >
           Login:
         </h2>
-        {error && <p className="text-red-500 font-semibold text-center">{error}</p>}
+        
+        {error && (
+          <p className="text-red-500 font-semibold text-center">{error}</p>
+        )}
         <BloodForm
           onSubmit={loginHandler}
-          //defaultValues={defaultValues}
-         // resolver={validationSchema}
+         // defaultValues={defaultValues}
+          // resolver={validationSchema}
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">
-            <BloodInput name="email" type="email" label="Email" required={true}/>
+            <BloodInput
+              name="email"
+              type="email"
+              label="Email"
+              required={true}
+            />
           </div>
           <div className="flex flex-col">
-            <BloodInput name="password" type="password" label="Password" required={true}/>
+            <BloodInput
+              name="password"
+              type="password"
+              label="Password"
+              required={true}
+            />
           </div>
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
             {/* <button type="submit"> */}
-              <PrimaryBtn>
-                Login
-              </PrimaryBtn>
+            <PrimaryBtn>Login</PrimaryBtn>
             {/* </button> */}
-            
-          
           </div>
           <p style={{ textAlign: "center", width: "full", marginTop: "10px" }}>
             Do not have an account ?{" "}

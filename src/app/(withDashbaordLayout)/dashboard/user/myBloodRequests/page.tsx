@@ -69,8 +69,8 @@ const MyBloodRequestsPage = () => {
         <Search placeholder="Search User" />
       </div>
       {/* user table */}
-      <div className="mt-16">
-        <Table columns={columns} dataSource={myBloodRequests?.data} />
+      <div className="mt-16 ">
+        <Table columns={columns} dataSource={myBloodRequests?.data}  scroll={{ x: "max-content" }}/>
       </div>
       {isModalOpen && (
         <DonorInfoModal

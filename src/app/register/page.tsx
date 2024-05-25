@@ -93,13 +93,13 @@ const RegisterPage = () => {
   return (
     <div className="min-h-screen  flex items-center justify-center py-10">
       <div
-        className="border border-blue-300 lg:w-4/12 xl:w-5/12 
+        className="border border-red-300 lg:w-4/12 xl:w-5/12 
         "
         style={{
           margin: "0 auto",
           padding: "30px",
           borderRadius: "15px",
-          boxShadow: "10px 10px 30px lightblue",
+          boxShadow: "5px 5px  30px red",
         }}
       >
         <h2

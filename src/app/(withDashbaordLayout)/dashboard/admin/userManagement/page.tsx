@@ -166,7 +166,7 @@ const UserManagementPage = () => {
       </div>
       {/* user table */}
       <div className="mt-16">
-        <Table columns={columns} dataSource={allUsersData?.data} />
+        <Table columns={columns} dataSource={allUsersData?.data} scroll={{ x: "max-content" }} />
       </div>
     </div>
   );
