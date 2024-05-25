@@ -7,7 +7,7 @@ const HelpPeopleInNeed = () => {
   return (
     <div className="py-10 lg:py-16 w-10/12 lg:w-8/12 mx-auto lg:flex items-center  gap-10 ">
       <div className="lg:grid grid-cols-6 gap-6">
-        <figure className="hidden lg:relative  col-span-3">
+        <figure className="hidden lg:block relative  col-span-3">
           <Image height={450} src={assets.images.help1} alt="help image" />
           <Image
             height={160}
