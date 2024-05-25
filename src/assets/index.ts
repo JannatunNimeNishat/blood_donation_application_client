@@ -8,6 +8,10 @@ const assets = {
     whatWeDoImg2:require("./landing_page/whatWeDoImg2.jpg"),
     whatWeDoImg3:require("./landing_page/whatWeDoImg3.jpg"),
     callNow:require("./landing_page/callNow.jpg"),
+    blog1:require("./landing_page/blog1.jpg"),
+    blog2:require("./landing_page/blog2.jpg"),
+    blog3:require("./landing_page/blog3.jpg"),
+    
   },
 };
 
