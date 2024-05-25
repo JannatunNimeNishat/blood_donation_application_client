@@ -56,9 +56,9 @@ const BlogPage = () => {
               {data.map((item: any) => (
                
                 <div key={item.id} className="mt-3 ">
-                  <figure>
+                  <figure className="overflow-hidden">
                     <Image
-                      className="w-full h-[450px]"
+                      className="w-full h-[450px] hover:scale-110 duration-300"
                       src={item.image}
                       alt="blog image"
                     />

@@ -65,9 +65,13 @@ const AboutUsPage = () => {
               <PrimaryBtn>Contact With Us</PrimaryBtn>
             </div>
           </div>
-          <figure className="lg:w-1/2">
+          <figure className="lg:w-1/2 overflow-hidden"
+          style={{
+            boxShadow: "5px 5px 30px red"
+          }}
+          >
             <Image
-              className="w-full h-full"
+              className="w-full h-full hover:scale-110 duration-300"
               src={assets.images.aboutUs1}
               alt="about us"
             />

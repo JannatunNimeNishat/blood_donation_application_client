@@ -8,7 +8,10 @@ const HelpPeopleInNeed = () => {
     <div className="py-10 lg:py-16 w-10/12 lg:w-8/12 mx-auto lg:flex items-center  gap-10 ">
       <div className="lg:grid grid-cols-6 gap-6">
         <figure className="hidden lg:block relative  col-span-3">
-          <Image height={450} src={assets.images.help1} alt="help image" />
+          <figure className="overflow-hidden">
+          <Image height={450} src={assets.images.help1} className="hover:scale-110 duration-300" alt="help image" 
+          />
+          </figure>
           <Image
             height={160}
             width={160}

@@ -28,12 +28,14 @@ const HeroSection = () => {
             
           </div>
         </div>
-        <div className=" col-span-3 mt-8 lg:mt-0">
+        <div className=" col-span-3 mt-8 lg:mt-0 overflow-hidden rounded-lg"
+        style={{
+          boxShadow: "5px 5px 30px red"
+        }}>
+
           <Image
-            className="h-[450px] w-[450px] rounded-lg  "
-            style={{
-              boxShadow: "5px 5px 30px red"
-            }}
+            className="h-[450px] w-[450px] rounded-lg hover:scale-110 duration-300  "
+            
             src={assets.images.heroImage}
             alt="hero image"
           />

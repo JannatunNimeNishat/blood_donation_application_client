@@ -43,18 +43,18 @@ const OurRecentBlogs = () => {
         {/* blog cards */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-5">
           {data.map((item: any) => (
-            <div key={item.id} className="max-w-lg mx-auto">
-              <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
+            <div key={item.id} className="max-w-lg mx-auto  ">
+              <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 group">
                 
-                <figure >
-                  <Image className="rounded-t-lg" src={item.image} alt={item.title} />
+                <figure className="overflow-hidden">
+                  <Image className="rounded-t-lg group-hover:scale-110 duration-300" src={item.image} alt={item.title} />
                 </figure>
-                <div className="flex items-center justify-between  px-5 pt-3">
-                    <div className="flex items-center gap-3">
+                <div className="flex items-center justify-between  px-5 pt-3 text-red-500">
+                    <div className="flex items-center gap-3 text-red-500">
                     <ClockCircleOutlined /> 
                     <p>{item.publishedDate}</p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 text-red-500">
                     <CommentOutlined  /> 
                     <p>{item.comments}</p>
                     </div>
