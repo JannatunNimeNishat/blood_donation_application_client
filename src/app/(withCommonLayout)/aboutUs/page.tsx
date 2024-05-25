@@ -31,7 +31,7 @@ const AboutUsPage = () => {
     <div>
       {/* nav */}
       <div
-        className={` bg-fixed  bg-no-repeat  hidden lg:block`}
+        className={` bg-fixed  bg-no-repeat    hidden lg:block`}
         style={{ backgroundImage: `url(${aboutUsPage.src})` }}
       >
         <div className="lg:flex items-center justify-between backdrop-brightness-50 h-full w-full px-16 flex text-center  ">

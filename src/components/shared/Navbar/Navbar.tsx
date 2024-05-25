@@ -185,7 +185,7 @@ const Navbar = () => {
             
             <Link
             href={"/contact"}
-            className={`${pathName === '/contact' ? "text-red-500" : "text-[#0F172A] "}
+            className={`${pathName === '/blog' ? "text-red-500" : "text-[#0F172A] "}
             text-[18px] font-medium leading-[26px]
             `}
            
