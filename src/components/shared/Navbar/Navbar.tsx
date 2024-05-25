@@ -135,7 +135,8 @@ const Navbar = () => {
         </div>
       </div>
       {/* lg navbar */}
-      <div className="hidden lg:flex items-center gap-16  w-full mx-auto shadow-lg">
+      <div className="hidden lg:flex items-center gap-16  w-full mx-auto shadow-lg ">
+        {/* logo */}
         <div className="bg-red-500 w-4/12 text-left flex justify-end py-3 ">
           <Link
             href={"/"}
@@ -144,6 +145,7 @@ const Navbar = () => {
             BloodBond
           </Link>
         </div>
+        {/* links */}
         <div className="flex items-center w-8/12  gap-3 py-3">
           <ul className="flex items-center gap-5 ">
             <Link
@@ -170,6 +172,34 @@ const Navbar = () => {
             >
               Blood Donors
             </Link>
+            <Link
+            href={"/contact"}
+            className={`${pathName === '/contact' ? "text-red-500" : "text-[#0F172A] "}
+            text-[18px] font-medium leading-[26px]
+            `}
+           
+            onClick={() => setSmNavbarOptions(false)}
+          >
+            Contact
+          </Link>
+            <Link
+              className={`${pathName === "/bloodDonors" ? "text-red-500" : ""}
+          hover:text-red-500 duration-150 font-medium
+          `}
+              href={"/blog"}
+            >
+              Blood Donors
+            </Link>
+            <Link
+            href={"/contact"}
+            className={`${pathName === '/contact' ? "text-red-500" : "text-[#0F172A] "}
+            text-[18px] font-medium leading-[26px]
+            `}
+           
+            onClick={() => setSmNavbarOptions(false)}
+          >
+            Blog
+          </Link>
           </ul>
           <div className="cursor-pointer  ">
             <AuthButton />
