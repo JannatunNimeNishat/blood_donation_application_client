@@ -11,6 +11,9 @@ const assets = {
     blog1:require("./landing_page/blog1.jpg"),
     blog2:require("./landing_page/blog2.jpg"),
     blog3:require("./landing_page/blog3.jpg"),
+    aboutUsBanner:require("./landing_page/aboutUsPage.jpg"),
+    aboutUs1:require("./landing_page/aboutUs1.jpg"),
+    
     
   },
 };

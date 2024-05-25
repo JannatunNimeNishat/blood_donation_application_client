@@ -1,3 +1,4 @@
+import ChangeTheWorld from '@/components/ui/HomePage/ChangeTheWorld/ChangeTheWorld';
 import CountSection from '@/components/ui/HomePage/CountSection/CountSection';
 import HelpPeopleInNeed from '@/components/ui/HomePage/HelpPeopleInNeed/HelpPeopleInNeed';
 import HeroSection from '@/components/ui/HomePage/HeroSection/HeroSection';
@@ -26,6 +27,10 @@ const HomePage = () => {
      <div className='bg-gray-200 '>
      <OurRecentBlogs/>
      </div>
+     <div className='bg-red-600 hidden lg:hidden'>
+     <ChangeTheWorld/>
+     </div>
+
     </div>
   );
 };

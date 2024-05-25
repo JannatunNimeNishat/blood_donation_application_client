@@ -137,7 +137,7 @@ const Navbar = () => {
       {/* lg navbar */}
       <div className="hidden lg:flex items-center gap-16  w-full mx-auto shadow-lg ">
         {/* logo */}
-        <div className="bg-red-500 w-4/12 text-left flex justify-end py-3 ">
+        <div className="bg-red-600 w-5/12 text-left flex justify-end py-3 ">
           <Link
             href={"/"}
             className="text-4xl font-semibold text-white px-3 cursor-pointer"
@@ -182,14 +182,7 @@ const Navbar = () => {
           >
             Contact
           </Link>
-            <Link
-              className={`${pathName === "/bloodDonors" ? "text-red-500" : ""}
-          hover:text-red-500 duration-150 font-medium
-          `}
-              href={"/blog"}
-            >
-              Blood Donors
-            </Link>
+            
             <Link
             href={"/contact"}
             className={`${pathName === '/contact' ? "text-red-500" : "text-[#0F172A] "}
