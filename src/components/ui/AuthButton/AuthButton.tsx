@@ -40,7 +40,7 @@ const AuthButton = () => {
         <>
          {
             !userInfo?.id ?
-            <Link className=" w-[150px] border" href={'/login'}
+            <Link className=" w-[150px] " href={'/login'}
             >
               <PrimaryBtn>
                 Login

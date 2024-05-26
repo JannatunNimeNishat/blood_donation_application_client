@@ -8,6 +8,7 @@ import {
 import {  Table, TableProps, Tag } from "antd";
 import Search from "antd/es/transfer/search";
 import Image from "next/image";
+import { toast } from "sonner";
 
 interface DataType {
   key: string;
@@ -28,8 +29,13 @@ const UserManagementPage = () => {
     role: string;
     id: string;
   }) => {
+    console.log("reached");
     try {
-      await changeUserRole({ role, id });
+    const res =   await changeUserRole({ role, id });
+    console.log(res);
+    if(res?.data?.success){
+      toast.success(res?.data?.message)
+    }
     } catch (error: any) {
       console.log(error);
     }
@@ -43,7 +49,11 @@ const UserManagementPage = () => {
     id: string;
   }) => {
     try {
-      const res = await changeUserAccountType({ type, id });
+      const res:any = await changeUserAccountType({ type, id });
+      
+      if(res?.data?.success){
+        toast.success(res?.data?.message)
+      }
     } catch (error: any) {
       console.log(error);
     }

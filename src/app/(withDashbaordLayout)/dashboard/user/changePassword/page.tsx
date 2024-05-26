@@ -17,7 +17,6 @@ const ChangePasswordPage = () => {
        
         if(res?.data?.success === true){
             toast.success(res?.data?.message);
-            alert(res?.data?.message)
         }else if(res?.error?.data?.message){
             setError(res?.error?.data?.message)
         }

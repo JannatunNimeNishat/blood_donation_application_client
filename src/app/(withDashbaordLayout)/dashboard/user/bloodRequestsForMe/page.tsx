@@ -6,6 +6,7 @@ import {
 import { Modal, Table } from "antd";
 import Search from "antd/es/transfer/search";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const BloodRequestsForMePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +27,11 @@ const BloodRequestsForMePage = () => {
     id: string;
   }) => {
     try {
-      const res = await updateDonationRequest({ status, id });
+      const res:any = await updateDonationRequest({ status, id });
+      console.log(res);
+      if(res?.data?.success){
+        toast.success(res?.data?.message);
+      }
     } catch (error: any) {
       console.log(error);
     }

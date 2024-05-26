@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
+
 import { toast } from "sonner";
 
 import { z } from "zod";
@@ -61,14 +62,7 @@ console.log(loginOptions);
           boxShadow: "5px 5px 30px red",
         }}
       >
-        {/* <div className="flex items-center gap-3 absolute top-4 right-4 ">
-          <span className="px-3 py-1 border border-gray-500 rounded-lg" title="admin"
-          onClick={()=>setLoginOptions(1)}
-          >User</span>
-          <button className="px-3 py-1 border border-gray-500 rounded-lg"
-          onClick={()=>setLoginOptions(2)}
-          >Admin</button>
-        </div> */}
+       
         <h2
           className="font-semibold text-2xl"
           style={{ marginTop: "10px", marginBottom: "10px" }}
@@ -118,6 +112,7 @@ console.log(loginOptions);
           </p>
         </BloodForm>
       </div>
+     
     </div>
   );
 };

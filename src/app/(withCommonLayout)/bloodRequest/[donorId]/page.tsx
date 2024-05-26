@@ -8,6 +8,7 @@ import { useCreateBloodRequestMutation } from "@/redux/api/bloodRequestApi";
 import { useGetSingleDonorQuery } from "@/redux/api/donorApi";
 import React, { useState } from "react";
 import { FieldValues } from "react-hook-form";
+
 import { toast } from "sonner";
 
 const BloodRequestPage = ({ params }: { params: any }) => {
@@ -26,12 +27,11 @@ const BloodRequestPage = ({ params }: { params: any }) => {
       setError("");
       try {
         const res:any = await createBloodRequest(values);
-
+        console.log(res);
         if(res?.data?.data?.id){
-          toast.success(res?.data?.data?.message)
+          toast.success(res?.data?.message)
         }else{
           toast.error(res?.error?.data?.message)
-          //window.alert(`${res?.error?.data?.message}`)
         }
       } catch (error) {
         console.log(error);

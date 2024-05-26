@@ -11,10 +11,13 @@ const ChangePasswordPage = () => {
     const [changeUserPassword] = useChangeUserPasswordMutation();
   const handelPasswordChange = async(values: FieldValues) => {
     try {
-        const res = await changeUserPassword(values);
+        const res:any = await changeUserPassword(values);
+        console.log(res);
         if(res?.data?.success === true){
             toast.success(res?.data?.message);
-            alert(res?.data?.message)
+           // alert(res?.data?.message)
+        }else{
+          toast.error(res?.error?.data?.message);
         }
     } catch (error:any) {
         console.log(error);

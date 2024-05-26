@@ -10,6 +10,7 @@ import { useGetMyProfileInfoQuery, useUpdateUserInfoMutation } from "@/redux/api
 
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
 
 
 const EditProfilePage = () => {
@@ -33,7 +34,10 @@ const EditProfilePage = () => {
   const handleProfileInfoChange = async (values: FieldValues) => {
     setError("");
     try {
-      await updateUserInfo(values);
+     const res =  await updateUserInfo(values);
+     if(res?.data?.success){
+      toast.success(res?.data?.message)
+     }
     } catch (error: any) {
       console.log(error);
     }
