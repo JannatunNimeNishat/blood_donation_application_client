@@ -5,7 +5,6 @@ import PrimaryBtn from "@/components/ui/Button/PrimaryBtn";
 import { storeUserInfo } from "@/services/actions/auth.services";
 import { userLogin } from "@/services/actions/userLogin";
 
-import { Button } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -14,14 +13,11 @@ import { FieldValues } from "react-hook-form";
 
 import { toast } from "sonner";
 
-import { z } from "zod";
 
 
 
-export const validationSchema = z.object({
-  email: z.string().email("Please enter a valid email address!"),
-  password: z.string().min(6, "Must be at least 6 characters"),
-});
+
+
 
 const LoginPage = () => {
   const router = useRouter();
@@ -75,8 +71,6 @@ console.log(loginOptions);
         )}
         <BloodForm
           onSubmit={loginHandler}
-         // defaultValues={defaultValues}
-          // resolver={validationSchema}
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">

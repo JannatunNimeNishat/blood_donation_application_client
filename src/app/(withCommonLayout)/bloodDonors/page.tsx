@@ -8,18 +8,18 @@ import { Form, Pagination, PaginationProps, Select } from "antd";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 
-export type TBloodSearch = {
+/* export type TBloodSearch = {
   bloodType?: string;
   location?: string;
   availability?: boolean;
-};
+}; */
 
-export const defaultValues = {
+/* export const defaultValues = {
   bloodType: "",
   location: "",
   availability: "",
 };
-
+ */
 const BloodDonorsPage = () => {
   const [params, setParams] = useState([]);
   const [page, setPage] = useState(1);
@@ -32,7 +32,7 @@ const BloodDonorsPage = () => {
   const metaData = bloodDonorData?.data?.meta;
 
   const { handleSubmit, control, reset } = useForm<any>({
-    defaultValues: defaultValues,
+   // defaultValues: defaultValues,
   });
 
   const handleBloodSearch = (values: FieldValues) => {

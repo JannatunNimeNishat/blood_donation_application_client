@@ -6,11 +6,11 @@ The Blood Donation website is a user-centric platform designed to facilitate blo
 
 ## Live Link
 
-Visit the live website: [Blood Donation Website](your-live-link-here)
+Visit the live website: [Blood Donation Website](https://blood-donation-application-client.vercel.app/)
 
 ## GitHub Repository
 
-Check out the code on GitHub: [Blood Donation Repository](your-github-link-here)
+Check out the code on GitHub: [Blood Donation Repository](https://github.com/JannatunNimeNishat/blood_donation_application_client)
 
 ## Features
 

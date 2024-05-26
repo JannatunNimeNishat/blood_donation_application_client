@@ -10,7 +10,6 @@ import { storeUserInfo } from "@/services/actions/auth.services";
 import { registerUser } from "@/services/actions/registerUser";
 import { userLogin } from "@/services/actions/userLogin";
 import { imageUploader } from "@/utils/imageUploader";
-import { Button } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -18,26 +17,14 @@ import { useState } from "react";
 import { FieldValues, SubmitErrorHandler } from "react-hook-form";
 import { toast } from "sonner";
 
-const defaultValues = {
-  name: "",
-  email: "",
-  password: "",
-  bloodType: "",
-  location: "",
-  age: "",
-  bio: "",
-  lastDonationDate: "",
-  role: "",
-  isDonor: "",
-  userImageURL: "",
-  mobileNumber:""
-};
+
 
 const RegisterPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
   const handleRegister = async (values: FieldValues) => {
     setError("");
+    console.log(values);
     try {
       if (values?.userImageURL) {
         const uploadedImage = await imageUploader(
@@ -47,7 +34,6 @@ const RegisterPage = () => {
       }
       values.age = Number(values.age);
       const res = await registerUser(values);
-      
       // register
       if (res?.data?.id) {
         toast.success(res?.message);
@@ -113,7 +99,7 @@ const RegisterPage = () => {
         )}
         <BloodForm
           onSubmit={handleRegister}
-          defaultValues={defaultValues}
+       //   defaultValues={defaultValues}
           className="  mt-8 "
         >
           <div className="grid lg:grid-cols-2 gap-4">
@@ -164,9 +150,11 @@ const RegisterPage = () => {
           <BloodFileInput name="userImageURL" label="User Image " />
 
           <div className="" style={{ margin: "0 auto", width: "150px" }}>
+            <div>
           <PrimaryBtn>
                 Register
               </PrimaryBtn>
+            </div>
            {/*  <Button
               className="mt-0 py-5  flex items-center justify-center"
               style={{

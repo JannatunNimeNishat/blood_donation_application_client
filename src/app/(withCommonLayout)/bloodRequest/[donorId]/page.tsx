@@ -54,7 +54,9 @@ const BloodRequestPage = ({ params }: { params: any }) => {
         Contact with blood donor
       </h1>
       <div className="mt-8 w-8/12 mx-auto">
-        <BloodForm onSubmit={handleBloodRequest} defaultValues={defaultValue}>
+        <BloodForm onSubmit={handleBloodRequest} 
+        //defaultValues={defaultValue}
+        >
           <BloodInput
             type="text"
             name="phoneNumber"
