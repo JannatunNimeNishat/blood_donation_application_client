@@ -1,3 +1,4 @@
+import AboutUs from '@/components/ui/HomePage/AboutUs/AboutUs';
 import ChangeTheWorld from '@/components/ui/HomePage/ChangeTheWorld/ChangeTheWorld';
 import CountSection from '@/components/ui/HomePage/CountSection/CountSection';
 import HelpPeopleInNeed from '@/components/ui/HomePage/HelpPeopleInNeed/HelpPeopleInNeed';
@@ -14,6 +15,9 @@ const HomePage = () => {
     <div className="">
       <div className='bg-gray-200'>
      <HeroSection/> 
+      </div>
+      <div className='max-w-[1440px] mx-auto'>
+        <AboutUs/>
       </div>
      <div className=' max-w-[1440px] mx-auto'>
      <HelpPeopleInNeed/>
