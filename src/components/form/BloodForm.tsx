@@ -12,6 +12,7 @@ type TFormProps = {
   onSubmit: SubmitHandler<any>;
   children: ReactNode;
   className?: string;
+  setReset?: (resetFn: any) => void;
 } & TFormConfig;
 
 type TFormConfig = {
@@ -25,6 +26,7 @@ const BloodForm = ({
   defaultValues,
   resolver,
   className,
+  setReset,
 }: TFormProps) => {
   const formConfig: TFormConfig = {};
   if (defaultValues) {
@@ -36,6 +38,9 @@ const BloodForm = ({
   }
 
   const methods = useForm(formConfig);
+  if(setReset){
+    setReset(methods.reset);
+  }
   const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
     methods.reset();

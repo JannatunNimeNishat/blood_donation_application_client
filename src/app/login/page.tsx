@@ -13,24 +13,41 @@ import { FieldValues } from "react-hook-form";
 
 import { toast } from "sonner";
 
-
-
-
-
-
+const defaultValues = {
+  adminDefaultValues: { email: "admin@gmail.com", password: "123456" },
+  user1: { email: "david.wilson@gmail.com", password: "123456" },
+  user2: { email: "sophia.martinez@gmail.com", password: "123456" },
+};
 
 const LoginPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
- /*  const [loginOptions, setLoginOptions] = useState(0);
+  const [loginOptions, setLoginOptions] = useState(defaultValues.adminDefaultValues);
 
-console.log(loginOptions);
-  const defaultValues = {
-    email: loginOptions === 1 ? "admin@gmail.com":"nishatnime100@gmail.com",
-    password: loginOptions === 2 ? "123456":"123456",
+  let resetForm:any;
+
+  const handleLoginOption = (value: string) => {
+    let selectedOptions;
+    switch (value) {
+      case "admin":
+        selectedOptions = defaultValues.adminDefaultValues;
+        break;
+      case "user1":
+        selectedOptions = defaultValues.user1;
+        break;
+      case "user2":
+        selectedOptions = defaultValues.user2;
+        break;
+      default:
+        selectedOptions = defaultValues.adminDefaultValues;
+        break;
+    }
+    setLoginOptions(selectedOptions);
+    if (resetForm) {
+      resetForm(selectedOptions); // Call reset inside BloodForm with new values
+    }
   };
- */
-
+  console.log(loginOptions);
   const loginHandler = async (values: FieldValues) => {
     setError("");
     try {
@@ -58,19 +75,20 @@ console.log(loginOptions);
           boxShadow: "5px 5px 30px red",
         }}
       >
-       
         <h2
           className="font-semibold text-2xl"
           style={{ marginTop: "10px", marginBottom: "10px" }}
         >
           Login:
         </h2>
-        
+
         {error && (
           <p className="text-red-500 font-semibold text-center">{error}</p>
         )}
         <BloodForm
           onSubmit={loginHandler}
+          defaultValues={loginOptions}
+          setReset={(reset) => (resetForm = reset)}
           className="flex flex-col  mt-8  justify-center"
         >
           <div className="flex flex-col">
@@ -105,8 +123,18 @@ console.log(loginOptions);
             </Link>
           </p>
         </BloodForm>
+        <div className="absolute top-3 right-2 flex items-center gap-3">
+          <button className="px-3 py-1 rounded-lg border border-red-500 text-red-500 font-medium hover:bg-red-500 hover:text-white duration-300" onClick={()=>handleLoginOption("admin")}>
+            Admin
+          </button>
+          <button className="px-3 py-1 rounded-lg border border-red-500 text-red-500 font-medium hover:bg-red-500 hover:text-white duration-300" onClick={()=>handleLoginOption("user1")}>
+            User 1
+          </button>
+          <button className="px-3 py-1 rounded-lg border border-red-500 text-red-500 font-medium hover:bg-red-500 hover:text-white duration-300" onClick={()=>handleLoginOption("user2")}>
+            User 2
+          </button>
+        </div>
       </div>
-     
     </div>
   );
 };
